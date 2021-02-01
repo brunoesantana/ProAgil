@@ -4,8 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProAgil.WebApi.Data;
-using ProAgil.WebApi.Model;
+using ProAgil.Repository;
 
 namespace ProAgil.WebApi.Controllers
 {
@@ -45,7 +44,7 @@ namespace ProAgil.WebApi.Controllers
         {
             try
             {
-                var result = await _context.Eventos.FirstOrDefaultAsync(f => f.EventoId == id);
+                var result = await _context.Eventos.FirstOrDefaultAsync(f => f.Id == id);
 
                 if(result != null)
                     return Ok(result);
